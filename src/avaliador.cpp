@@ -6,7 +6,7 @@
     }
 
 
-   bool AvaliadorExpressaoLogica::avaliar() {
+   bool AvaliadorExpressaoLogica::avaliar(){
         for (char c : expression_) {
             if (c == ' ') {
                 continue; // Ignora espaços em branco
@@ -54,7 +54,7 @@
         return valores_.top();
     }
 
-    int AvaliadorExpressaoLogica::precedencia(char op) {
+    int AvaliadorExpressaoLogica::precedencia(char op){
         if (op == '(' || op == ')') return 1;
         if (op == '~') return 2;
         if (op == '&') return 3;
@@ -62,7 +62,7 @@
         return -1; // Operador inválido
     }
 
-   void  AvaliadorExpressaoLogica::aplicarOperador() {
+   void  AvaliadorExpressaoLogica::aplicarOperador(){
         char op = operadores_.top();
         operadores_.pop();
 

@@ -1,8 +1,11 @@
+#ifndef AVALIADOR_H
+#define AVALIADOR_H
 #include <iostream>
 #include <stack>
 #include <string>
 #include <stdexcept>
 #include <cctype>
+
 
 using namespace std;
 
@@ -15,11 +18,13 @@ public:
     void aplicarOperador(){};
 
 
-    private:
+private:
     string valuation_;
     string expression_;
     stack<bool> valores_;
     stack<char> operadores_;
     size_t index_;// índice para percorrer a string de valoração 
-
+   
 };
+
+#endif
