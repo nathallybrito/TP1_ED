@@ -1,5 +1,6 @@
 #include <iostream>
-#include "avaliador.h"
+#include<string>
+#include "avaliador.hpp"
 
 using namespace std;
 

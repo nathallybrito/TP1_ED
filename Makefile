@@ -5,21 +5,24 @@ OBJ = obj
 INC = include
 BIN = bin
 OBJS = $(OBJ)/main.o 
-HDRS = $(INC)/avaliador.h
-CFLAGS = -g -Wall -c -I$(INC)
-
+HDRS = $(INC)/avaliador.hpp
+CFLAGS = -g -Wall -I$(INC)
 
 EXE = $(BIN)/main
 
-all: run EXE
+all: $(EXE)
 
-run: $(EXE)
-
-$(BIN)/main: $(OBJS) $(SRC)/avaliador.cpp
-	$(CC) -g -o $(BIN)/main $(OBJS) $(SRC)/avaliador.cpp $(LIBS)
+$(EXE): $(OBJS) $(OBJ)/avaliador.o
+	$(CC) -o $(EXE) $(OBJS) $(OBJ)/avaliador.o $(LIBS)
 
 $(OBJ)/main.o: $(HDRS) $(SRC)/main.cpp
-	$(CC) $(CFLAGS) -o $(OBJ)/main.o $(SRC)/main.cpp 
+	$(CC) $(CFLAGS) -o $(OBJ)/main.o -c $(SRC)/main.cpp 
+
+$(OBJ)/avaliador.o: $(HDRS) $(SRC)/avaliador.cpp
+	$(CC) $(CFLAGS) -o $(OBJ)/avaliador.o -c $(SRC)/avaliador.cpp
+
+run: $(EXE)
+	./$(EXE)
 
 clean:
 	rm -f $(EXE) $(OBJ)/*.o

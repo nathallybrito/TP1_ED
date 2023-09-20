@@ -1,12 +1,16 @@
+#include <iostream>
+#include <stack>
+#include <string>
+#include <stdexcept>
 
-#include "avaliador.h"
+#include "avaliador.hpp"
 
- AvaliadorExpressaoLogica::AvaliadorExpressaoLogica(const string& expression, const string& valuation) : expression_(expression),valuation_(valuation){
-        index_=0; //Inicializa o índice para percorrer a string de valoração.
-    }
+AvaliadorExpressaoLogica::AvaliadorExpressaoLogica(const std::string& expression, const std::string& valuation) 
+    : expression_(expression), valuation_(valuation) {
+    index_ = 0; // Inicializa o índice para percorrer a string de valoração
+}
 
-
-   bool AvaliadorExpressaoLogica::avaliar(){
+   bool AvaliadorExpressaoLogica:: avaliar() {
         for (char c : expression_) {
             if (c == ' ') {
                 continue; // Ignora espaços em branco
@@ -54,7 +58,7 @@
         return valores_.top();
     }
 
-    int AvaliadorExpressaoLogica::precedencia(char op){
+    int AvaliadorExpressaoLogica:: precedencia(char op) {
         if (op == '(' || op == ')') return 1;
         if (op == '~') return 2;
         if (op == '&') return 3;
@@ -62,7 +66,7 @@
         return -1; // Operador inválido
     }
 
-   void  AvaliadorExpressaoLogica::aplicarOperador(){
+    void  AvaliadorExpressaoLogica:: aplicarOperador() {
         char op = operadores_.top();
         operadores_.pop();
 
@@ -82,6 +86,4 @@
                 valores_.push(operand1 || operand2);
             }
         }
-    }
-
-
+    };
