@@ -1,10 +1,10 @@
 #ifndef AVALIADOR_H
 #define AVALIADOR_H
 #include <iostream>
-#include <stack>
 #include <string>
 #include <stdexcept>
 #include <cctype>
+#include "stack.hpp"
 
 class AvaliadorExpressaoLogica {
 public:
@@ -17,8 +17,8 @@ public:
 private:
     std::string expression_;
     std::string valuation_;
-    std::stack<bool> valores_;
-    std::stack<char> operadores_;
+    Stack<bool> valores_;
+    Stack<char> operadores_;
     size_t index_; // Índice para percorrer a string de valoração
 
     
