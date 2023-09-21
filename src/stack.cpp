@@ -7,7 +7,7 @@ using namespace std;
 template <typename S>
 Stack<S>::Stack(int size) {
     top = -1;
-    length = size;
+    length = 1000000;
     if (length <= 0) {
         throw invalid_argument("Stack size must be greater than zero.");
     }
@@ -60,3 +60,5 @@ S Stack<S>::topElement()const{
     }
     return p[top];
 }
+template class Stack<bool>;
+template class Stack<char>;
