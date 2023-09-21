@@ -19,8 +19,7 @@ private:
     std::string valuation_;
     Stack<bool> valores_;
     Stack<char> operadores_;
-    size_t index_; // Índice para percorrer a string de valoração
-
+    
     
 };
 

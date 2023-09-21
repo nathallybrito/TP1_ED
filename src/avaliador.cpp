@@ -5,9 +5,7 @@
 #include "avaliador.hpp"
 
 AvaliadorExpressaoLogica::AvaliadorExpressaoLogica(const std::string& expression, const std::string& valuation) 
-    : expression_(expression), valuation_(valuation) {
-    index_ = 0; // Inicializa o índice para percorrer a string de valoração
-}
+    : expression_(expression), valuation_(valuation) {};
 
    bool AvaliadorExpressaoLogica:: avaliar() {
         for (char c : expression_) {
