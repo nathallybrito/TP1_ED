@@ -22,5 +22,6 @@ private:
     
     
 };
+//criar uma herança de Avaliador-- que vai ser uma árvore que vai utilizar os métodos
 
 #endif

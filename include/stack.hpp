@@ -1,19 +1,26 @@
 #ifndef STACK_H
 #define STACK_H
 
+template<typename S>
+//cria o nó encadeado para a lista
+class No{ 
+public:
+No( S n);// construtor;
+  S data;
+  No* link;
+};
+
 template <typename S>
 class Stack {
 private:
-     S *p;
-    int top, length;
-    friend class AvaliadorExpressaoLogica;
+     No<S>* top;
 
 public:
-    Stack(int size =0);
-    ~Stack();
+    Stack();
+    //~Stack();
 
-    void push(S);
-    S pop();
+    void push(S data);
+    void pop();
     void display();
     bool isEmpty() const;
     S topElement() const;
