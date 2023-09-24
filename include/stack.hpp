@@ -17,12 +17,12 @@ private:
 
 public:
     Stack();
-    //~Stack();
+    ~Stack();
 
     void push(S data);
     void pop();
     void display();
-    bool isEmpty() const;
+    bool isEmpty()const;
     S topElement() const;
 };
 

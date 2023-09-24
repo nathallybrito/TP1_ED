@@ -17,16 +17,19 @@ Stack<S>::Stack() {
     
 }
 
-/*template <typename S>
+template <typename S>
 Stack<S>::~Stack() {
-    delete[] p;
-}*/
+    while(!isEmpty()){
+            pop();
+
+    }
+}
 
 template <typename S>
 void Stack<S>::push(S data) {
     No<S>* temp = new No<S>(data); //cria o nó temo que aloca memoria na heap
     if(!temp){
-        cout<<"Stack Overflow"<<endl;
+        cout<<"A Pilha está cheia"<<endl;
         exit(1);
     }// checa se a pilha está cheia 
     temp-> data = data;// incializa o dado dento do temp
