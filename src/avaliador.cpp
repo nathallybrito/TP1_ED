@@ -84,5 +84,6 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica(const std::string& expression
             }
         }
     };
+    
 
    
