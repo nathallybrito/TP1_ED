@@ -11,7 +11,7 @@ No( S n);// construtor;
 };
 
 template <typename S>
-class Stack :{
+class Stack{
   private:
      No<S>* top;
 
@@ -25,7 +25,7 @@ class Stack :{
     bool isEmpty()const;
     S topElement() const;
 };
-class ArvoreBinaria: public Stack { // Insere e limpa pode reaproveitar talvez
+/*class ArvoreBinaria: public Stack { // Insere e limpa pode reaproveitar talvez
   public:
     ArvoreBinaria();
     ~ArvoreBinaria();
@@ -41,6 +41,6 @@ class ArvoreBinaria: public Stack { // Insere e limpa pode reaproveitar talvez
     void PosOrdem(charNo* p);
     charNo* raiz;
   
-}
+}*/
 
 #endif
