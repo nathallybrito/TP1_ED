@@ -1,30 +1,6 @@
-/*class arvoreNo{
-    public:
-        charNo();
-    private:
-        charItem item;
-        charNo *esq;
-        charNo *dir;
-        friend class ArvoreBinaria;
-}
-
-class ArvoreBinaria:{ // Insere e limpa pode reaproveitar talvez
-  public:
-    ArvoreBinaria();
-    ~ArvoreBinaria();
-    //void Insere( char item);
-    void Caminha( int tipo);
-    void limpa();
-  private:
-    void InsereRecursivo (charNo* &p, char item);
-    void ApagaRecursivo(charNo* p);
-    void PorNivel();
-    void PreOrdem(charNo* p);
-    void InOrdem(charNo* p);
-    void PosOrdem(charNo* p);
-    charNo* raiz;
-  
-} */
+#ifndef ARVORE_H
+#define ARVORE_H
+#include <iostream>
 
 class arvoreNo{
     public:
@@ -42,20 +18,23 @@ class arvoreNo{
 
 class ArvoreBinaria{
   public:
-  ArvoreBinaria(){
+    ArvoreBinaria(){
     raiz= NULL;
-  }
-  ~ArvoreBinaria(){
+    }
+    ~ArvoreBinaria(){
     Limpa();
-  }
-  void Insere(char item){
+    }
+    void Insere(char item){
     InsereRecursivo( raiz,item);
-  }
-  void InsereRecursivo (charNo* &p, char item){
-    if(p==NULL){
+    }
+    void Caminha(int tipo);
+    void Limpa();
+  private:
+    void InsereRecursivo (charNo* &p, char item){
+      if(p==NULL){
       P= new CharNo();
       p-> item=item;
-    }
+      }
     else{
       if(item.GetChave() < p->item.GetChave())
           InsereRecursivo(p->esq,item);
@@ -63,8 +42,12 @@ class ArvoreBinaria{
           InsereRecursivo(p -> dir,item);
     }
     }
-
-  void PreOrdem(CharNo *p)
+    void ApagaRecursivo(charNo* p);
+    void PorNivel();
+    void PreOrdem(CharNo *p);
+    void InOrdem(charNo* p);
+    void PosOrdem(charNo* p);
   }
 
 
+#endif

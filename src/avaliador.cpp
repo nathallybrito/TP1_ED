@@ -10,7 +10,7 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std
     void AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression, std::string& valuation){
     unsigned valuationIndex = 0; // Inicializa o índice de valuation como 0
 
-    for (unsigned i = 0; i < expression.size(); i++) {
+    for (unsigned i = 0;i < expression.size(); i++) {
         char ch = expression[i];
 
         if (ch != '|' && ch != '&' && ch != '~' && ch != '(' && ch != ')' && ch != ' ') {
