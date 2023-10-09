@@ -4,10 +4,25 @@
 
 #include "avaliador.hpp"
 
-AvaliadorExpressaoLogica::AvaliadorExpressaoLogica(const std::string& expression, const std::string& valuation) 
+AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std::string& valuation) 
     : expression_(expression), valuation_(valuation) {};
 
+    void AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression, std::string& valuation){
+    unsigned valuationIndex = 0; // Inicializa o índice de valuation como 0
+
+    for (unsigned i = 0; i < expression.size(); i++) {
+        char ch = expression[i];
+
+        if (ch != '|' && ch != '&' && ch != '~' && ch != '(' && ch != ')' && ch != ' ') {
+            // Verifica se o valuationIndex está dentro dos limites da valuation string
+            if (valuationIndex < valuation.size()) {
+                expression[i] = valuation[valuationIndex++]; // Atribui o valor de valuation e incrementa o índice
+            }
+        }
+    }
+    }
    bool AvaliadorExpressaoLogica:: avaliar() {
+        avaliarEntrada(expression_,valuation_);
         for (char c : expression_) {
             if (c == ' ') {
                 continue; // Ignora espaços em branco
@@ -35,10 +50,8 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica(const std::string& expression
                 }
 
                 operadores_.push(c);
-            } else if (std::isdigit(c)) { // Variáveis representadas por inteiros
-                int variableIndex = c - '0'; // Converte o caractere para índice da variável
-                bool variableValue = valuation_[variableIndex] == '1';
-                valores_.push(variableValue);
+            } else if (std::isdigit(c)) {//coloca na pilha o valor da variável
+                valores_.push(c);
             } else {
                 throw std::invalid_argument("Caractere inválido na expressão: " + std::string(1, c));
             }

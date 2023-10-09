@@ -46,7 +46,7 @@ int main(int argc, char** argv){
 
         } else if( optescolhida == "-s"){
             //falta implementar aqui a lógica para satisfabilidade 
-             cout << "Opção de Satisfabilidade selecionada." << endl;
+             cout << "Expressão satisfabilidade escolhida" << endl;
         } else{
             cerr<< "Opção inválida. Use -a ou -s"<<endl;
             uso();

@@ -8,8 +8,8 @@
 
 class AvaliadorExpressaoLogica {
 public:
-    AvaliadorExpressaoLogica(const std::string& expression, const std::string& valuation);
-    
+    AvaliadorExpressaoLogica( std::string& expression,  std::string& valuation);
+    void avaliarEntrada( std::string& expression, std::string& valuation);
     bool avaliar();
     int precedencia(char op);
     void aplicarOperador();

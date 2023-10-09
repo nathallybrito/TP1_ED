@@ -32,15 +32,15 @@ class arvoreNo{
           item.SetChave(-1);
           esq = NULL;
           dir = NULL;
-        }
+        };
     private:
         charItem item;
         charNo *esq;
         charNo *dir;
         friend class ArvoreBinaria;
-}
+};
 
-clas ArvoreBinaria{
+class ArvoreBinaria{
   public:
   ArvoreBinaria(){
     raiz= NULL;
