@@ -6,53 +6,33 @@
 #ifndef ARVORE_H
 #define ARVORE_H
 #include <iostream>
+#include <string>
+#include "avaliador.hpp"
 
-class arvoreNo{
-    public:
-        char No(){
-          item.SetChave(-1);
-          esq = NULL;
-          dir = NULL;
-        };
-    private:
-        char Item item;
-        cha rNo *esq;
-        charNo *dir;
-        friend class ArvoreBinaria;
-};
+struct NO{
+        std::string valor;
+        NO *esq;
+        NO *dir;
+        int item ;
+        std:: string esq = NULL;
+        std:: string dir = NULL;
+        NO(std::string &valor_);
+          
+};    
+      
 
 class ArvoreBinaria{
   public:
-    ArvoreBinaria(){
-    raiz= NULL;
-    }
-    ~ArvoreBinaria(){
-    Limpa();
-    }
-    void Insere(char item){
-    InsereRecursivo( raiz,item);
-    }
-    void Caminha(int tipo);
-    void Limpa();
+    ArvoreBinaria( char &valuation,std::string &expression);
+    ~ArvoreBinaria();
+    NO *constroi(std::string &expression,unsigned int valuationIndex);
+    void avaliaRecursivo (NO *arvore,std:: string &expression_,int index);
+    void apagaRecursivo(NO *no);
+    void avaliaFolha();
   private:
-    void InsereRecursivo (charNo* &p, char item){
-      if(p==NULL){
-      P= new CharNo();
-      p-> item=item;
-      }
-    else{
-      if(item.GetChave() < p->item.GetChave())
-          InsereRecursivo(p->esq,item);
-        else
-          InsereRecursivo(p -> dir,item);
-    }
-    }
-    void ApagaRecursivo(charNo* p);
-    void PorNivel();
-    void PreOrdem(CharNo *p);
-    void InOrdem(charNo* p);
-    void PosOrdem(charNo* p);
-  }
+      NO *arvore;
+      std::string expression_;
+};
 
 
 #endif
