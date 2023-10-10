@@ -1,17 +1,22 @@
+//---------------------------------------------------------------------
+// Arquivo	: arvore.hpp
+// Conteudo	: definicoes do TAD ARVORE 
+// Autor	: Náthally Fernandes. (nathallyfernandes@ufmg.br)
+//---------------------------------------------------------------------
 #ifndef ARVORE_H
 #define ARVORE_H
 #include <iostream>
 
 class arvoreNo{
     public:
-        charNo(){
+        char No(){
           item.SetChave(-1);
           esq = NULL;
           dir = NULL;
         };
     private:
-        charItem item;
-        charNo *esq;
+        char Item item;
+        cha rNo *esq;
         charNo *dir;
         friend class ArvoreBinaria;
 };

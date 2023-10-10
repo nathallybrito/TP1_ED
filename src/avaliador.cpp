@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------
+// Arquivo	: avaliador.cpp
+// Conteudo	: implementação da classe "avalidor.hpp"
+// Autor	: Náthally Fernandes. (nathallyfernandes@ufmg.br)
+//---------------------------------------------------------------------
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -5,6 +10,8 @@
 #include "avaliador.hpp"
 
 AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std::string& valuation) 
+//Descrição:construtor da classe
+// Entrada: expression,valuation
     : expression_(expression), valuation_(valuation) {};
 
     void AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression, std::string& valuation){
@@ -21,7 +28,11 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std
         }
     }
     }
-   bool AvaliadorExpressaoLogica:: avaliar() {
+   bool AvaliadorExpressaoLogica:: avaliar()
+   // Descrição:
+   // Entrada:
+   // Saida: 
+    {
         avaliarEntrada(expression_,valuation_);
         for (char c : expression_) {
             if (c == ' ') {

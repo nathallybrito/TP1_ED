@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------
+// Arquivo	: stack.cpp
+// Conteudo	: implementação do TAD PILHA
+// Autor	: Náthally Fernandes. (nathallyfernandes@ufmg.br)
+//---------------------------------------------------------------------
 #include "stack.hpp"
 #include <iostream>
 #include <stdexcept>

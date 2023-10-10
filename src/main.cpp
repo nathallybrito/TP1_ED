@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------
+// Arquivo	: main.cpp
+// Conteudo	: programa de avaliação do trabalho
+// Autor	: Náthally Fernandes. (nathallyfernandes@ufmg.br)
+//---------------------------------------------------------------------
 #include <iostream>
 #include <string>
 #include "avaliador.hpp"
@@ -32,7 +37,11 @@ int parse_args(int argc,char** argv, string& optescolhida, string& expression, s
 
 }
 
-int main(int argc, char** argv){
+int main(int argc, char** argv)
+// Descricao: programa principal para execucao das avaliações de expressões e satisfabilidade
+// Entrada: argc e argv
+// Saida: depende da operacao escolhida
+{
     string optescolhida,expression,valuation;
     if(parse_args(argc,argv,optescolhida,expression,valuation)!= 0){
         return 1;

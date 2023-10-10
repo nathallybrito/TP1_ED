@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------
+// Arquivo	: avaliador.hpp
+// Conteudo	: definicoes da classe usada para avaliar a expressão lógica.
+// Autor	: Náthally Fernandes (nathallyfernandes@ufmg.br)
+//---------------------------------------------------------------------
 #ifndef AVALIADOR_H
 #define AVALIADOR_H
 #include <iostream>

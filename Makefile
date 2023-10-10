@@ -1,11 +1,11 @@
 #---------------------------------------------------------------------
 # Arquivo	: Makefile
 # Conteúdo	: compilar o programa main
-# Autor		: Náthally Fernandes
+# Autor		: Náthally Fernandes (nathallyfernandes@ufmg.br)
 #---------------------------------------------------------------------
 # Opções	: make all - compila tudo
 #           : make run - compila o exécutavel 
-#		: make clean - remove objetos e executável
+#			: make clean - remove objetos e executável
 #---------------------------------------------------------------------
 CC = g++
 LIBS = -lm
