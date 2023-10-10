@@ -14,8 +14,6 @@ struct NO{
         NO *esq;
         NO *dir;
         int item ;
-        std:: string esq = NULL;
-        std:: string dir = NULL;
         NO(std::string &valor_);
           
 };    
@@ -30,7 +28,8 @@ class ArvoreBinaria{
     void apagaRecursivo(NO *no);
     void avaliaFolha();
   private:
-      NO *arvore;
+
+      NO* arvore;
       std::string expression_;
 };
 

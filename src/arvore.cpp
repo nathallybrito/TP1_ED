@@ -6,6 +6,7 @@
 //---------------------------------------------------------------------
 #include <iostream>
 #include "arvore.hpp"
+#include "avaliador.hpp"
 
 NO::NO(std:: string &valor_){
     valor=valor_;
@@ -14,13 +15,12 @@ NO::NO(std:: string &valor_){
     item=-1;
 }
 
-ArvoreBinaria::ArvoreBinaria( char &valuation,std::string &expression){
-    arvore=nullptr;
+ArvoreBinaria::ArvoreBinaria( char &valuation,std::string &expression):arvore(nullptr),expression_(exp){
     arvore = constroi(expression,0);
 }
 
 ArvoreBinaria::~ArvoreBinaria(){
-    apagaRecursivo->root;
+    apagaRecursivo->arvore;
 }
 
 NO *ArvoreBinaria::constroi(std::string &expression,unsigned int valuationIndex){
@@ -41,18 +41,47 @@ NO *ArvoreBinaria::constroi(std::string &expression,unsigned int valuationIndex)
     }
     return no;
 }
- std::string ArvoreBinaria::avaliaRecursivo (int start=0){
+ /*std::string ArvoreBinaria::avaliaRecursivo(int start=0){
     avaliaRecursivo(arvore,expression,start);
 
     if(arvore->item==0){
         return "0";
     }
     return"1" + arvore->valor
- }
+ }*/
 
 void ArvoreBinaria::avaliaRecursivo(NO*arvore,std:: string &expression_,int index){
     if(!arvore){
             return;
     }
-    avaliaRecursivo(arvore->esq,expression_,index+1);
+    avaliaRecursivo(arvore->esq, expression_,index+1);
+    avaliaRecursivo(arvore->dir,expression_,index+1);
+
+    if(arvore->esq == nullptr && arvore->dir == nullptr){
+        avaliaRecursivo(arvore);
+        return;
+    }
+    const unsigned int str_size = arvore->valor.lenght();
+    int esq_result= arvore->esq->item;
+    int dir_result= arvore->dir->item;
+    unsigned int valuationINDEX= avaliarEntrada(arvore->valor_,index);
+    
+    const int resultado0 = 0;
+    const int resultado1 = 1;
+
+    if(esq_result == resultado1 && dir_result == esq_result){
+        for(unsigned int i = 0;i<str_size;i++){
+            if(arvore->valor[i] = 'a');
+        }
+        else 
+        {
+            arvore->valor[i]= arvore->dir->valor[i];
+        }
+    }
+    arvore->item= resultado1;
+} else if( esq_result || dir_result){
+    if(arvore->valor[valuationIndex]== 'a'){
+        
+    }
 }
+

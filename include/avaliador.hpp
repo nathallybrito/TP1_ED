@@ -20,7 +20,7 @@ public:
     void aplicarOperador();
      
 private:
-    std::string expression_;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        std::string expression_;
     std::string valuation_;
     Stack<bool> valores_;
     Stack<char> operadores_;
