@@ -14,14 +14,19 @@
 class AvaliadorExpressaoLogica {
 public:
     AvaliadorExpressaoLogica( std::string& expression,  std::string& valuation);
+    AvaliadorExpressaoLogica(const char* expression, const char* valuation);
     void avaliarEntrada( std::string& expression, std::string& valuation);
-    bool avaliar();
+    bool  avaliar(const std:: string& expression);
     int precedencia(char op);
     void aplicarOperador();
+    
+   
      
 private:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        std::string expression_;
+    std::string exp_;
     std::string valuation_;
+    const char *expression ;
+    const char *valuation;
     Stack<bool> valores_;
     Stack<char> operadores_;
     

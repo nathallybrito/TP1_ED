@@ -13,8 +13,8 @@ SRC = src
 OBJ = obj
 INC = include
 BIN = bin
-OBJS = $(OBJ)/main.o $(OBJ)/stack.o $(OBJ)/avaliador.o
-HDRS = $(INC)/avaliador.hpp $(INC)/stack.hpp
+OBJS = $(OBJ)/main.o $(OBJ)/stack.o $(OBJ)/avaliador.o $(OBJ)/arvore.o
+HDRS = $(INC)/avaliador.hpp $(INC)/stack.hpp $(INC)/arvore.hpp
 CFLAGS = -Wall -c -g -I$(INC)
 
 EXE = $(BIN)/main
@@ -25,7 +25,7 @@ run:  $(EXE)
 		./$(EXE) -a "~ ( 0 | 1 ) & 2" 101
 		./$(EXE) -s "0 | 1 & 2" 0e0
 		./$(EXE) -s	"0 | 1 & 2" e00
-		./$(EXE) -s "0 | 1 & 2" a11
+		./$(EXE) -s "0 | 1 & 2" e11
 
 $(BIN)/main: $(OBJS)
 	$(CC) -g -o $(BIN)/main $(OBJS) $(LIBS)
@@ -37,7 +37,10 @@ $(OBJ)/stack.o: $(HDRS) $(SRC)/stack.cpp
 	$(CC) $(CFLAGS) -o $(OBJ)/stack.o $(SRC)/stack.cpp  
 
 $(OBJ)/avaliador.o: $(HDRS) $(SRC)/avaliador.cpp
-	$(CC) $(CFLAGS) -o $(OBJ)/avaliador.o $(SRC)/avaliador.cpp	 
+	$(CC) $(CFLAGS) -o $(OBJ)/avaliador.o $(SRC)/avaliador.cpp	
+
+$(OBJ)/arvore.o: $(HDRS) $(SRC)/arvore.cpp
+	$(CC) $(CFLAGS) -o $(OBJ)/arvore.o $(SRC)/arvore.cpp	  
 	
 clean:
 	rm -f $(EXE) $(OBJS) gmon.out

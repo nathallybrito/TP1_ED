@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include "avaliador.hpp"
+#include "arvore.hpp"
 #include "stack.hpp"
 
 using namespace std;
@@ -50,12 +51,16 @@ int main(int argc, char** argv)
     try {
         if (optescolhida == "-a"){
             AvaliadorExpressaoLogica evaluator(expression, valuation);
-            bool result = evaluator.avaliar();
+            bool result = evaluator.avaliar(expression);
             cout << "Resultado da expressão: " << result << endl;
 
         } else if( optescolhida == "-s"){
-            //falta implementar aqui a lógica para satisfabilidade 
-             cout << "Expressão satisfabilidade escolhida" << endl;
+            std::string val_expression= valuation;
+            std:: string exp= expression;
+            ArvoreBinaria tree(val_expression,exp);
+            unsigned int lowerbound = tree.encontraQuanti(valuation,0);
+            cout << tree.avalia(lowerbound)<<endl;
+
         } else{
             cerr<< "Opção inválida. Use -a ou -s"<<endl;
             uso();

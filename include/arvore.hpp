@@ -7,7 +7,6 @@
 #define ARVORE_H
 #include <iostream>
 #include <string>
-#include "avaliador.hpp"
 
 struct NO{
         std::string valor;
@@ -16,21 +15,26 @@ struct NO{
         int item ;
         NO(std::string &valor_);
           
-};    
+    };    
       
 
 class ArvoreBinaria{
   public:
-    ArvoreBinaria( char &valuation,std::string &expression);
+    ArvoreBinaria( std:: string &entrada,std::string &expressao_);
     ~ArvoreBinaria();
-    NO *constroi(std::string &expression,unsigned int valuationIndex);
-    void avaliaRecursivo (NO *arvore,std:: string &expression_,int index);
+    NO *constroi(std::string &entrada,size_t index);
+    unsigned int encontraQuanti(std::string expression,unsigned int index);
+    std::string avalia(int start);
+    void avaliaRecursivo (NO *arvore,std:: string &genericStr,int index);
     void apagaRecursivo(NO *no);
-    void avaliaFolha();
+    void avaliaFolha(NO *no);
+    void funcoesAvaliador(std::string &expression, std::string &valuation);
+
   private:
 
-      NO* arvore;
-      std::string expression_;
+      NO* raiz;
+      std::string expressao;
+      std::string valuation;
 };
 
 

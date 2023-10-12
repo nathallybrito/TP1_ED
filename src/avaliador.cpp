@@ -7,34 +7,38 @@
 #include <string>
 #include <stdexcept>
 
+
 #include "avaliador.hpp"
 
 AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std::string& valuation) 
 //Descrição:construtor da classe
 // Entrada: expression,valuation
-    : expression_(expression), valuation_(valuation) {};
+    : exp_(expression), valuation_(valuation) {};
 
-    void AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression, std::string& valuation){
+    void  AvaliadorExpressaoLogica:: avaliarEntrada( std::string& expression, std::string& valuation){
     unsigned valuationIndex = 0; // Inicializa o índice de valuation como 0
 
     for (unsigned i = 0;i < expression.size(); i++) {
         char ch = expression[i];
 
         if (ch != '|' && ch != '&' && ch != '~' && ch != '(' && ch != ')' && ch != ' ') {
-            // Verifica se o valuationIndex está dentro dos limites da valuation string
+            // Verifica se o valuationIndex está bdentro dos limites da valuation string
             if (valuationIndex < valuation.size()) {
                 expression[i] = valuation[valuationIndex++]; // Atribui o valor de valuation e incrementa o índice
             }
         }
     }
     }
-   bool AvaliadorExpressaoLogica:: avaliar()
+   bool AvaliadorExpressaoLogica:: avaliar(const std::string& expression)
    // Descrição:
    // Entrada:
    // Saida: 
     {
-        avaliarEntrada(expression_,valuation_);
-        for (char c : expression_) {
+        avaliarEntrada(exp_,valuation_);
+
+        for (unsigned int i = 0; i<expression.size(); ++i) {
+            char c = expression[i];
+
             if (c == ' ') {
                 continue; // Ignora espaços em branco
             } else if (c == '0') {
@@ -65,16 +69,12 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std
                 valores_.push(c);
             } else {
                 throw std::invalid_argument("Caractere inválido na expressão: " + std::string(1, c));
-            }
+            } 
         }
 
         while (!operadores_.isEmpty()) {
             aplicarOperador();
-        }
-
-        /*if (valores_.size() != 1) {
-            throw std::runtime_error("Expressão mal formada.");
-        }*/
+        } 
 
         return valores_.topElement();
     }
@@ -86,6 +86,7 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std
         if (op == '|') return 4;
         return -1; // Operador inválido
     }
+
 
     void  AvaliadorExpressaoLogica:: aplicarOperador() {
         char op = operadores_.topElement();
