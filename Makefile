@@ -19,14 +19,16 @@ CFLAGS = -Wall -c -g -I$(INC)
 
 EXE = $(BIN)/main
 
-run:  $(EXE)
+all:  $(EXE)
 		./$(EXE) -a "0 | 1" 01
 		./$(EXE) -a "0 | 1 & 2" 010
 		./$(EXE) -a "~ ( 0 | 1 ) & 2" 101
 		./$(EXE) -s "0 | 1 & 2" 0e0
-		./$(EXE) -s	"0 | 1 & 2" e00
+		./$(EXE) -s "0 | 1 & 2" e00
 		./$(EXE) -s "0 | 1 & 2" e11
-
+		./$(EXE) -s "0 | 1" ea 
+		./$(EXE) -s "0 | ~ ~ 1" ea
+		./$(EXE) -s "((0 & 1) & (2 & 3) & (4 & 5) & ( 6 & 7) & (8 & 9) )" e1e1e1e1e1
 $(BIN)/main: $(OBJS)
 	$(CC) -g -o $(BIN)/main $(OBJS) $(LIBS)
 

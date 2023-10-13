@@ -52,14 +52,15 @@ int main(int argc, char** argv)
         if (optescolhida == "-a"){
             AvaliadorExpressaoLogica evaluator(expression, valuation);
             bool result = evaluator.avaliar(expression);
-            cout << "Resultado da expressão: " << result << endl;
+            cout << result << endl;
 
         } else if( optescolhida == "-s"){
-            std::string val_expression= valuation;
-            std:: string exp= expression;
-            ArvoreBinaria tree(val_expression,exp);
-            unsigned int lowerbound = tree.encontraQuanti(valuation,0);
-            cout << tree.avalia(lowerbound)<<endl;
+            /*std::string val_expression = valuation;
+            std::string exp = expression;
+            ArvoreBinaria tree(val_expression, exp);
+            unsigned int lowerbound = tree.encontraQuanti(valuation, 0);*/
+            AvaliadorExpressaoLogica avaliacao(expression,valuation);
+            avaliacao.satisfabilidade(expression,valuation);
 
         } else{
             cerr<< "Opção inválida. Use -a ou -s"<<endl;

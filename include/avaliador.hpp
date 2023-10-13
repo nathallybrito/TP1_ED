@@ -13,12 +13,13 @@
 
 class AvaliadorExpressaoLogica {
 public:
-    AvaliadorExpressaoLogica( std::string& expression,  std::string& valuation);
-    AvaliadorExpressaoLogica(const char* expression, const char* valuation);
-    void avaliarEntrada( std::string& expression, std::string& valuation);
-    bool  avaliar(const std:: string& expression);
-    int precedencia(char op);
+    AvaliadorExpressaoLogica (std::string& expression, std::string& valuation);
+    std::string avaliarEntrada ( std::string& expression, std::string& valuation);
+    AvaliadorExpressaoLogica (const char* expression, const char* valuation);
+    bool avaliar (const std:: string& expression);
+    int precedencia (char op);
     void aplicarOperador();
+    void satisfabilidade(std::string& expression,std::string &valuation);
     
    
      
