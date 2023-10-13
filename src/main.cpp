@@ -55,13 +55,13 @@ int main(int argc, char** argv)
             cout << result << endl;
 
         } else if( optescolhida == "-s"){
-            /*std::string val_expression = valuation;
-            std::string exp = expression;
-            ArvoreBinaria tree(val_expression, exp);
-            unsigned int lowerbound = tree.encontraQuanti(valuation, 0);*/
-            AvaliadorExpressaoLogica avaliacao(expression,valuation);
-            avaliacao.satisfabilidade(expression,valuation);
-
+            AvaliadorExpressaoLogica evaluator(expression, valuation);
+            std::string resultadoExpressao = evaluator.avaliarEntrada(expression, valuation);
+            ArvoreBinaria tree(expression, valuation);
+            tree.raiz= tree.constroi(resultadoExpressao, 0); // Atribua a raiz diretamente
+            tree.expressao = resultadoExpressao;
+            string result = tree.avalia(0);
+            cout << result << endl;
         } else{
             cerr<< "Opção inválida. Use -a ou -s"<<endl;
             uso();
@@ -75,3 +75,4 @@ int main(int argc, char** argv)
     return 0;
 
 }
+

@@ -1,8 +1,9 @@
 //---------------------------------------------------------------------
-// Arquivo	: stack.cpp
-// Conteudo	: implementação do TAD PILHA
-// Autor	: Náthally Fernandes. (nathallyfernandes@ufmg.br)
+// Arquivo    : stack.cpp
+// Conteudo   : implementação do TAD PILHA
+// Autor      : Náthally Fernandes (nathallyfernandes@ufmg.br)
 //---------------------------------------------------------------------
+
 #include "stack.hpp"
 #include <iostream>
 #include <stdexcept>
@@ -10,93 +11,79 @@
 using namespace std;
 
 template<typename S>
-No<S>::No(S n){
-    this -> data =n;
-    this -> link= NULL;
-
+No<S>::No(S n) {
+    this->data = n;
+    this->link = NULL;
 }
 
 template <typename S>
 Stack<S>::Stack() {
-    top=NULL;
-    
+    top = NULL;
 }
 
 template <typename S>
 Stack<S>::~Stack() {
-    while(!isEmpty()){
-            pop();
-
+    while (!isEmpty()) {
+        pop();
     }
 }
 
 template <typename S>
 void Stack<S>::push(S data) {
-    No<S>* temp = new No<S>(data); //cria o nó temo que aloca memoria na heap
-    if(!temp){
-        cout<<"A Pilha está cheia"<<endl;
+    No<S>* temp = new No<S>(data); // Cria um novo nó que aloca memória na heap
+    if (!temp) {
+        cout << "A Pilha está cheia" << endl;
         exit(1);
-    }// checa se a pilha está cheia 
-    temp-> data = data;// incializa o dado dento do temp
-    temp->link=top;// aponta pra ponta do ponteiro
-    top=temp;//make temp as top of stack
-    
+    }
+    temp->data = data;  // Inicializa o dado dentro do nó temp
+    temp->link = top;   // Aponta para o topo da pilha anterior
+    top = temp;         // Define o temp como o novo topo da pilha
 }
 
 template <typename S>
- void Stack<S>::pop() {
+void Stack<S>::pop() {
     No<S>* temp;
-    if(top==NULL){
-        cout<< "A PILHA ESTÁ VAZIA"<<endl;
+    if (top == NULL) {
+        cout << "A PILHA ESTÁ VAZIA" << endl;
         exit(1);
-    }
-    else{
-        temp = top; // coloca o dado na pilha
-        top = top->link; // coloca o segundo no
-
-            // This will automatically destroy
-            // the link between first node and second node
- 
-            // Release memory of top node
-            // i.e delete the node
-        delete(temp);
-
-
+    } else {
+        temp = top;       // Armazena o nó do topo da pilha
+        top = top->link;  // Atualiza o topo da pilha para o próximo nó
+        delete(temp);     // Libera a memória do nó removido
     }
 }
 
-
 template <typename S>
-void Stack<S>::display() { // função q impreme os elementos da pilha
+void Stack<S>::display() {
     No<S>* temp;
- if (top==NULL){
-      cout<<" A PILHA ESTA VAZIA " <<endl;
-      exit(1);
-    }
-else{
-    temp= top;
-    while(temp != NULL){
-        cout<< temp ->data;
-        temp = temp ->link;
-        if( temp != NULL)
-            cout<<" ->";
-    }
-    }
-    
-}
-
-template <typename S>
-bool Stack<S>::isEmpty()const{ // ve se a pilha esta cheia ou não
-    return top == NULL;
-}
-
-template <typename S>
-S Stack<S>::topElement()const{ //  retorna o elemento do topo da pilha
-    if(!isEmpty()){
-        return top ->data;
-    }
-    else
+    if (top == NULL) {
+        cout << "A PILHA ESTÁ VAZIA" << endl;
         exit(1);
+    } else {
+        temp = top;
+        while (temp != NULL) {
+            cout << temp->data;
+            temp = temp->link;
+            if (temp != NULL) {
+                cout << " -> ";
+            }
+        }
+    }
 }
-template class Stack <bool>;
-template class Stack <char>;
+
+template <typename S>
+bool Stack<S>::isEmpty() const {
+    return top == NULL; // Retorna verdadeiro se a pilha estiver vazia
+}
+
+template <typename S>
+S Stack<S>::topElement() const {
+    if (!isEmpty()) {
+        return top->data;  // Retorna o elemento no topo da pilha
+    } else {
+        exit(1);
+    }
+}
+
+template class Stack<bool>;  // Instanciar a classe Stack com tipos bool e char.
+template class Stack<char>;

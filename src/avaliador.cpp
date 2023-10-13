@@ -6,19 +6,18 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-
 #include "arvore.hpp"
 #include "avaliador.hpp"
 
-AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std::string& valuation) 
+AvaliadorExpressaoLogica::AvaliadorExpressaoLogica ( std::string& expression, std::string& valuation) 
 //Descrição:construtor da classe
 // Entrada: expression,valuation
-    : exp_(expression), valuation_(valuation) {};
+: exp_(expression), valuation_(valuation) {};
 
-   std::string  AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression, std::string& valuation){
+std::string  AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression, std::string& valuation){
     unsigned valuationIndex = 0; // Inicializa o índice de valuation como 0
 
-    for (unsigned i = 0; i < expression.size(); i++) {
+        for (unsigned i = 0; i < expression.size(); i++) {
         char ch = expression[i];
 
         if (ch != '|' && ch != '&' && ch != '~' && ch != '(' && ch != ')' && ch != ' ') {
@@ -78,10 +77,9 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std
         } 
 
         return valores_.topElement();
-    }
-} 
+         }
+    } 
    
-
     int AvaliadorExpressaoLogica:: precedencia(char op) {
         if (op == '~') {
             return 3;
@@ -117,15 +115,5 @@ AvaliadorExpressaoLogica::AvaliadorExpressaoLogica( std::string& expression, std
         }
     }
 
-    void AvaliadorExpressaoLogica::satisfabilidade(std::string& expression,std::string &valuation){
-        std ::string  resultadoExpresao = avaliarEntrada(expression, valuation);
-        ArvoreBinaria tree;
-        tree.raiz = tree.constroi(resultadoExpresao,0);
-        tree.expressao = resultadoExpresao;
-        std::string result = tree.avalia(1);
-        std::cout <<result<< std::endl;
-
-    }
-    
 
    
