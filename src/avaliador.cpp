@@ -6,12 +6,9 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "arvore.hpp"
 #include "avaliador.hpp"
 
 AvaliadorExpressaoLogica::AvaliadorExpressaoLogica ( std::string& expression, std::string& valuation) 
-//Descrição:construtor da classe
-// Entrada: expression,valuation
 : exp_(expression), valuation_(valuation) {};
 
 std::string  AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression, std::string& valuation){
@@ -30,11 +27,7 @@ std::string  AvaliadorExpressaoLogica:: avaliarEntrada ( std::string& expression
     return expression;
     } 
 
-   bool AvaliadorExpressaoLogica:: avaliar(const std:: string& expression)
-   // Descrição:
-   // Entrada:
-   // Saida: 
-    { 
+   bool AvaliadorExpressaoLogica:: avaliar(const std:: string& expression){ 
        {
         for (unsigned int i = 0; i<expression.size(); ++i){
             char c = expression[i];

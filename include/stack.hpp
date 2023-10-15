@@ -66,5 +66,4 @@ class Stack{
   // Se a pilha estiver vazia, pode gerar uma exceção ou encerrar o programa (dependendo da implementação).
     S topElement() const;
 };
-
 #endif

@@ -58,7 +58,7 @@ int main(int argc, char** argv)
             AvaliadorExpressaoLogica evaluator(expression, valuation);
             std::string resultadoExpressao = evaluator.avaliarEntrada(expression, valuation);
             ArvoreBinaria tree(expression, valuation);
-            tree.raiz= tree.constroi(resultadoExpressao, 0); // Atribua a raiz diretamente
+            tree.raiz= tree.constroi(resultadoExpressao, 0); 
             tree.expressao = resultadoExpressao;
             string result = tree.avalia(0);
             cout << result << endl;
